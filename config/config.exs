@@ -11,7 +11,4 @@ config :logger, :console, format: "[$level] $message\n"
 # If the window crashes, set default_scene to nil to disable auto-load and debug.
 config :lunity,
   mode: :editor,
-  default_scene: "pong",
-  scene_builders: %{
-    "pong" => {Pong.SceneBuilder, :build}
-  }
+  default_scene: "pong"

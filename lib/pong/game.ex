@@ -1,6 +1,6 @@
 defmodule Pong.Game do
   @moduledoc """
-  Pong game window. Renders the scene built from box.glb instances.
+  Pong game window. Loads the scene via Lunity.SceneLoader from config.
   """
   use EAGL.Window
   use EAGL.Const
@@ -8,7 +8,7 @@ defmodule Pong.Game do
   import Bitwise
 
   alias EAGL.Scene
-  alias Pong.SceneBuilder
+  alias Lunity.SceneLoader
 
   def run(opts \\ []) do
     default_opts = [
@@ -27,7 +27,7 @@ defmodule Pong.Game do
   @impl true
   def setup do
     with {:ok, program} <- GLTF.EAGL.create_pbr_shader(),
-         {:ok, scene} <- SceneBuilder.build(shader_program: program) do
+         {:ok, scene, _entities} <- SceneLoader.load_scene("pong", shader_program: program) do
       orbit = EAGL.OrbitCamera.fit_to_scene(scene)
       {:ok, %{program: program, scene: scene, orbit: orbit}}
     end
