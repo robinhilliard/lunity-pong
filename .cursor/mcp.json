@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "lunity": {
+      "url": "http://localhost:4111/sse"
+    }
+  }
+}

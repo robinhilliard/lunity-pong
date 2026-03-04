@@ -1,0 +1,14 @@
+---
+description: Lunity MCP - call set_project first when using HTTP transport
+alwaysApply: true
+---
+
+# Lunity MCP
+
+When using Lunity MCP tools (scene_load, entity_list, etc.), call **set_project** first with the project root:
+
+```json
+{"cwd": "/home/robin/workspaces/pong", "app": "pong"}
+```
+
+The `app` is optional (inferred from mix.exs if omitted). This is required because Lunity uses HTTP transport (stdio breaks due to group leader issues).
