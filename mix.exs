@@ -24,7 +24,8 @@ defmodule Pong.MixProject do
     [
       # or from hex when published
       {:lunity, "~> 0.1.0", path: "../lunity"},
-      {:ecsx, "~> 0.5"}
+      {:ecsx, "~> 0.5"},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 end
