@@ -515,3 +515,75 @@
 [2026-03-04 19:49:29.395112Z] Starting MCP server (with editor)...
 [2026-03-04 19:49:29.396283Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
 [2026-03-04 19:49:29.566245Z] MCP server started (pid=#PID<0.272.0>)
+[2026-03-05 19:53:32.548764Z] Starting Lunity MCP...
+[2026-03-05 19:53:32.550951Z] headless=false
+[2026-03-05 19:53:32.551089Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 19:53:32.551156Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 19:53:32.878875Z] Host app pong started
+[2026-03-05 19:53:32.879199Z] Lunity app started
+[2026-03-05 19:53:32.879317Z] Starting MCP server (with editor)...
+[2026-03-05 19:53:32.879392Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 19:53:32.902909Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 19:58:10.739373Z] Starting Lunity MCP...
+[2026-03-05 19:58:10.741997Z] headless=false
+[2026-03-05 19:58:10.742100Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 19:58:10.742209Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 19:58:10.937008Z] Host app pong started
+[2026-03-05 19:58:10.937258Z] Lunity app started
+[2026-03-05 19:58:10.937395Z] Starting MCP server (with editor)...
+[2026-03-05 19:58:10.937477Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 19:58:10.967202Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 19:59:17.664045Z] Starting Lunity MCP...
+[2026-03-05 19:59:17.665881Z] headless=false
+[2026-03-05 19:59:17.665982Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 19:59:17.666695Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 19:59:17.832681Z] Host app pong started
+[2026-03-05 19:59:17.833893Z] Lunity app started
+[2026-03-05 19:59:17.834120Z] Starting MCP server (with editor)...
+[2026-03-05 19:59:17.834230Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 19:59:17.887934Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 20:18:34.022138Z] Starting Lunity MCP...
+[2026-03-05 20:18:34.024147Z] headless=false
+[2026-03-05 20:18:34.024240Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 20:18:34.024315Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 20:18:34.171041Z] Host app pong started
+[2026-03-05 20:18:34.171154Z] Lunity app started
+[2026-03-05 20:18:34.171204Z] Starting MCP server (with editor)...
+[2026-03-05 20:18:34.171363Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 20:18:34.190742Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 20:45:44.943955Z] Starting Lunity MCP...
+[2026-03-05 20:45:44.945758Z] headless=false
+[2026-03-05 20:45:44.945820Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 20:45:44.945879Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 20:45:45.096662Z] Host app pong started
+[2026-03-05 20:45:45.097594Z] Lunity app started
+[2026-03-05 20:45:45.097634Z] Starting MCP server (with editor)...
+[2026-03-05 20:45:45.097659Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 20:45:45.121076Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 20:49:44.201812Z] Starting Lunity MCP...
+[2026-03-05 20:49:44.203806Z] headless=false
+[2026-03-05 20:49:44.203965Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 20:49:44.204061Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 20:49:44.352184Z] Host app pong started
+[2026-03-05 20:49:44.353252Z] Lunity app started
+[2026-03-05 20:49:44.353396Z] Starting MCP server (with editor)...
+[2026-03-05 20:49:44.353445Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 20:49:44.378163Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 20:50:53.910178Z] Starting Lunity MCP...
+[2026-03-05 20:50:53.912023Z] headless=false
+[2026-03-05 20:50:53.912218Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 20:50:53.912276Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 20:50:54.048765Z] Host app pong started
+[2026-03-05 20:50:54.048988Z] Lunity app started
+[2026-03-05 20:50:54.049135Z] Starting MCP server (with editor)...
+[2026-03-05 20:50:54.049257Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 20:50:54.070011Z] MCP server started (pid=#PID<0.285.0>)
+[2026-03-05 20:54:35.155210Z] Starting Lunity MCP...
+[2026-03-05 20:54:35.160242Z] headless=false
+[2026-03-05 20:54:35.160401Z] Mix project OK (cwd=/home/robin/workspaces/lunity-pong)
+[2026-03-05 20:54:35.160516Z] project_priv=/home/robin/workspaces/lunity-pong/priv
+[2026-03-05 20:54:35.360301Z] Host app pong started
+[2026-03-05 20:54:35.361296Z] Lunity app started
+[2026-03-05 20:54:35.361465Z] Starting MCP server (with editor)...
+[2026-03-05 20:54:35.361537Z] HTTP transport on port 4111, SSE at http://localhost:4111/sse
+[2026-03-05 20:54:35.417485Z] MCP server started (pid=#PID<0.285.0>)
