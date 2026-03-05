@@ -27,7 +27,8 @@ defmodule Pong.Game do
   @impl true
   def setup do
     with {:ok, program} <- GLTF.EAGL.create_pbr_shader(),
-         {:ok, scene, _entities} <- SceneLoader.load_scene("pong", shader_program: program) do
+         {:ok, scene, _entities} <-
+           SceneLoader.load_scene(Pong.Scenes.Pong, shader_program: program) do
       orbit = EAGL.OrbitCamera.fit_to_scene(scene)
       {:ok, %{program: program, scene: scene, orbit: orbit}}
     end
