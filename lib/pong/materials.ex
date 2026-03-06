@@ -11,4 +11,11 @@ defmodule Pong.Materials do
   )
 
   material(:blue, base_color: {0.2, 0.5, 1.0}, metallic: 0.0, roughness: 0.4)
+
+  material(:warm_glow,
+    base_color: {1.0, 0.9, 0.7},
+    emissive: {1.0, 0.85, 0.6},
+    metallic: 0.0,
+    roughness: 0.3
+  )
 end

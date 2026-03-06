@@ -24,4 +24,4 @@ pong-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
-lunity_mcp.log
+lunity_edit.log

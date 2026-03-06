@@ -2,20 +2,6 @@ defmodule Pong.Scenes.Pong do
   use Lunity.Scene
 
   scene do
-    light(:sun,
-      type: :directional,
-      color: {1.0, 0.95, 0.8},
-      intensity: 2.0,
-      rotation: {-0.3827, 0.0, 0.0, 0.9239}
-    )
-
-    light(:fill,
-      type: :directional,
-      color: {0.4, 0.5, 0.7},
-      intensity: 0.5,
-      rotation: {0.1, 0.3, 0.0, 0.95}
-    )
-
     node(:floor, prefab: Pong.Prefabs.Box, position: {0, 0, -1}, scale: {12, 6, 0.3})
 
     node(:paddle_left,
@@ -42,7 +28,8 @@ defmodule Pong.Scenes.Pong do
       entity: Pong.Entities.Ball,
       position: {0, 0, 0.5},
       scale: {0.4, 0.4, 0.4},
-      material: Pong.Materials.white()
+      material: Pong.Materials.warm_glow(),
+      light: Lunity.Light.point(color: {1.0, 0.85, 0.6}, intensity: 5.0, range: 30.0)
     )
   end
 end
