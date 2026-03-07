@@ -9,7 +9,9 @@ defmodule Pong.Scenes.Pong do
       entity: Pong.Entities.Paddle,
       position: {-18, 0.5, 0},
       scale: {0.3, 0.3, 1.5},
-      properties: %{side: :left}
+      properties: %{side: :left},
+      material: Pong.Materials.warm_glow(),
+      light: Lunity.Light.point(color: {1.0, 0.85, 0.6}, intensity: 5.0, range: 50.0)
     )
 
     node(:paddle_right,
@@ -17,7 +19,9 @@ defmodule Pong.Scenes.Pong do
       entity: Pong.Entities.Paddle,
       position: {18, 0.5, 0},
       scale: {0.3, 0.3, 1.5},
-      properties: %{side: :right}
+      properties: %{side: :right},
+      material: Pong.Materials.warm_glow(),
+      light: Lunity.Light.point(color: {1.0, 0.85, 0.6}, intensity: 5.0, range: 50.0)
     )
 
     node(:wall_top, prefab: Pong.Prefabs.Box, position: {0, 0.15, 9.5}, scale: {12, 0.5, 0.3})
