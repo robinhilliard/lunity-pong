@@ -10,6 +10,16 @@ mix pong.run
 
 The game runs in Lunity's editor mode by default, with orbit camera controls and auto-reload on file changes.
 
+## Development
+
+For the full editor experience with scene hierarchy, MCP tools, and agent-driven development, run from the Pong project:
+
+```bash
+mix lunity.edit
+```
+
+This starts the Lunity editor window and MCP server. Configure Cursor to connect (see Lunity README). `mix pong.run` launches the standalone game window; `mix lunity.edit` is the development editor.
+
 ## Project structure
 
 ```
