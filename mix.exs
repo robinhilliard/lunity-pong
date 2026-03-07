@@ -22,9 +22,7 @@ defmodule Pong.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # or from hex when published
       {:lunity, "~> 0.1.0", path: "../lunity"},
-      {:ecsx, "~> 0.5"},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
