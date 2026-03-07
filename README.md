@@ -1,6 +1,6 @@
 # Pong
 
-A Pong game built on [Lunity](https://github.com/robinhilliard/lunity) and [EAGL](https://github.com/robinhilliard/eagl). Serves as the first game project for the Lunity engine, driving development of the scene, entity, and prefab DSLs, and editor tooling.
+A Pong game built on [Lunity](https://github.com/robinhilliard/lunity) and [EAGL](https://github.com/robinhilliard/eagl). Serves as the first game project for the Lunity engine, driving development of the scene, entity, and prefab DSLs, component system, and editor tooling.
 
 ## Running
 
@@ -15,49 +15,36 @@ The game runs in Lunity's editor mode by default, with orbit camera controls and
 ```
 lib/
   pong.ex                    # Main module
-  application.ex             # Application supervisor
+  application.ex             # Application supervisor (starts Pong.Manager)
   pong/
+    manager.ex               # Lunity.Manager (components, systems, tick loop)
     game.ex                  # Game window (play mode)
+    components/
+      position.ex            # {x, y, z} tensor component
+      velocity.ex            # {vx, vy, vz} tensor component
+      speed.ex               # Scalar float tensor component
+      side.ex                # Paddle side (0=left, 1=right)
+      paddle_control.ex      # Auto vs player control (0=auto)
+    systems/
+      move_ball.ex           # Applies velocity to position (defn)
+      bounce_walls.ex        # Wall/paddle reflection and scoring (defn)
+      auto_paddle.ex         # Auto paddle tracking (defn)
     scenes/
       pong.ex                # Scene module (use Lunity.Scene)
-
-priv/
-  config/
-    scenes/
-      pong.exs               # Legacy config scene (fallback)
+    entities/
+      ball.ex                # Ball entity (inits Position, Velocity, Speed)
+      paddle.ex              # Paddle entity (inits Position, Speed, Side, PaddleControl)
 
 config/
   config.exs                 # Lunity editor mode config
 ```
 
-## Scene definition
+## Component system
 
-The pong scene is defined as a compiled module using the Lunity Scene DSL:
+Pong uses Lunity's Nx-backed tensor components. All game state is stored in contiguous Nx tensors. Systems are `defn` functions that process entire tensors per tick -- no per-entity iteration loops.
 
-```elixir
-defmodule Pong.Scenes.Pong do
-  use Lunity.Scene
-
-  scene do
-    node :floor,        prefab: "box", position: {0, 0, -1}, scale: {12, 6, 0.3}
-    node :paddle_left,  prefab: "box", position: {-18, 0, 0.5}, scale: {0.3, 1.5, 0.3}
-    node :paddle_right, prefab: "box", position: {18, 0, 0.5}, scale: {0.3, 1.5, 0.3}
-    node :wall_top,     prefab: "box", position: {0, 9.5, 0.15}, scale: {12, 0.3, 0.5}
-    node :wall_bottom,  prefab: "box", position: {0, -9.5, 0.15}, scale: {12, 0.3, 0.5}
-    node :ball,         prefab: "box", position: {0, 0, 0.5}, scale: {0.4, 0.4, 0.4}
-  end
-end
-```
-
-## How it uses Lunity
-
-- **Scene DSL** -- scene layout defined as a compiled module with `use Lunity.Scene`
-- **PrefabLoader** -- all elements use the `"box"` prefab (`priv/prefabs/box.glb`)
-- **Editor mode** -- Lunity opens the editor window, loads the default scene, enables orbit camera
-- **File watcher** -- changes to scene/config files trigger auto-reload with camera preserved
-- **MCP tooling** -- agent-driven development via Lunity's MCP server
+Both paddles default to auto control (PaddleControl = 0). The AutoPaddle system tracks the ball with limited speed and a dead zone, producing rallies that eventually end.
 
 ## Dependencies
 
 - `lunity` - Game engine (path dependency to `../lunity`)
-- `ecsx` - Entity Component System
