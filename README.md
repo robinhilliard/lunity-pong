@@ -1,6 +1,46 @@
 # Pong
 
-A Pong game built on [Lunity](https://github.com/robinhilliard/lunity) and [EAGL](https://github.com/robinhilliard/eagl). Serves as the first game project for the Lunity engine, driving development of the scene, entity, and prefab DSLs, component system, and editor tooling.
+A Pong game built on the [Lunity Game Engine](https://github.com/robinhilliard/lunity) as a starter project.
+
+## Prerequisites
+
+Pong depends on Lunity and EAGL, which require Erlang/OTP 25+ with wx support, Elixir 1.17+, and OpenGL 3.3+.
+
+### macOS
+
+Use Homebrew — it builds Erlang with wx correctly configured. Do **not** use asdf-installed Erlang; it links against wxWidgets at build time and breaks when Homebrew upgrades wxWidgets.
+
+```bash
+brew install erlang elixir
+```
+
+If you also use asdf for other projects, the `.tool-versions` files in all three projects are set to `system`, so asdf will use Homebrew's Erlang and Elixir automatically.
+
+Verify: `elixir --version` should show matching OTP versions (e.g. "compiled with Erlang/OTP 26" when running OTP 26). Mismatched versions cause `nif_not_loaded` errors on `:gl.*` calls.
+
+**Cursor/ElixirLS**: If ElixirLS shows "Failed to run elixir check command", launch Cursor from the terminal (`cursor .`) so it inherits your shell PATH.
+
+### Linux / WSL2
+
+```bash
+# Erlang, Elixir, OpenGL drivers, file watching
+sudo apt install erlang elixir libgl1-mesa-dev libglu1-mesa-dev inotify-tools
+```
+
+WSL2 works for development but OpenGL runs through a software layer — expect lower frame rates and input lag compared to native Linux or macOS.
+
+### Verify
+
+```bash
+elixir --version    # Check Elixir and OTP versions match
+mix pong.check      # Checks elixir, erlang, wx, and compilation
+```
+
+## Setup
+
+```bash
+mix setup    # Fetch deps for pong, lunity, eagl
+```
 
 ## Running
 

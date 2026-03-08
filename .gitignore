@@ -24,3 +24,6 @@ pong-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Cursor workspace file
+*.code-workspace
