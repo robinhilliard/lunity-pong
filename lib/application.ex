@@ -5,7 +5,7 @@ defmodule Pong.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      Pong.Manager
+      {Pong.Manager, [capacity: 32]}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one)

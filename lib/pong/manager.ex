@@ -9,8 +9,13 @@ defmodule Pong.Manager do
   def components do
     [
       Lunity.Components.InstanceMembership,
-      Pong.Components.Position,
-      Pong.Components.Velocity,
+      Lunity.Components.Position,
+      Lunity.Physics.Components.Velocity,
+      Lunity.Physics.Components.BoxCollider,
+      Lunity.Physics.Components.CollisionLayer,
+      Lunity.Physics.Components.CollisionMask,
+      Lunity.Physics.Components.Restitution,
+      Lunity.Physics.Components.Static,
       Pong.Components.Speed,
       Pong.Components.Side,
       Pong.Components.PaddleControl
@@ -21,8 +26,9 @@ defmodule Pong.Manager do
   def systems do
     [
       Pong.Systems.AutoPaddle,
-      Pong.Systems.MoveBall,
-      Pong.Systems.BounceWalls
+      Lunity.Physics.Systems.ApplyVelocity,
+      Lunity.Physics.Systems.AABBCollision,
+      Pong.Systems.Scoring
     ]
   end
 
