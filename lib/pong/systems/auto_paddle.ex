@@ -3,28 +3,28 @@ defmodule Pong.Systems.AutoPaddle do
   Moves auto-controlled paddles toward the ball.
 
   Tracks the ball's Z position with limited speed (70% of max) and a dead zone
-  (ignores differences < 0.3 units). Good enough to rally but beatable.
+  (ignores differences < 0.05 units). Good enough to rally but beatable.
 
   Uses PaddleControl == 0 as the auto flag. Non-paddle entities have
   PaddleControl == 0 but also Speed == 0, so they don't move.
   """
-  use Lunity.System,
-    type: :tensor,
-    reads: [
-      Lunity.Components.Position,
-      Pong.Components.Speed,
-      Pong.Components.PaddleControl,
-      Lunity.Physics.Components.Static
-    ],
-    writes: [Lunity.Components.Position]
+  use Lunity.System, type: :tensor
 
-  import Nx.Defn
+  alias Lunity.Components.Position
+  alias Lunity.Physics.Components.Static
+  alias Pong.Components.{Speed, PaddleControl}
 
   @effectiveness 0.7
   @dead_zone 0.05
   @dt 0.05
   @z_limit 6.0
 
+  @spec run(%{
+          position: Position.t(),
+          speed: Speed.t(),
+          paddle_control: PaddleControl.t(),
+          static: Static.t()
+        }) :: %{position: Position.t()}
   defn run(%{position: pos, speed: speed, paddle_control: ctrl, static: static_flag}) do
     is_auto = Nx.equal(ctrl, 0)
     has_speed = Nx.greater(speed, 0)
@@ -55,4 +55,5 @@ defmodule Pong.Systems.AutoPaddle do
 
     %{position: new_pos}
   end
+
 end

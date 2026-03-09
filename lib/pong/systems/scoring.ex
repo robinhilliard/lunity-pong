@@ -3,19 +3,16 @@ defmodule Pong.Systems.Scoring do
   Resets the ball to center when it passes beyond the paddle lines (score event).
   The collision system handles bouncing; this system handles scoring.
   """
-  use Lunity.System,
-    type: :tensor,
-    reads: [
-      Lunity.Components.Position,
-      Lunity.Physics.Components.Velocity,
-      Pong.Components.Speed
-    ],
-    writes: [Lunity.Components.Position, Lunity.Physics.Components.Velocity]
+  use Lunity.System, type: :tensor
 
-  import Nx.Defn
+  alias Lunity.Components.Position
+  alias Lunity.Physics.Components.Velocity
+  alias Pong.Components.Speed
 
   @reset_x 20.0
 
+  @spec run(%{position: Position.t(), velocity: Velocity.t(), speed: Speed.t()}) ::
+          %{position: Position.t(), velocity: Velocity.t()}
   defn run(%{position: pos, velocity: vel, speed: speed}) do
     x = pos[[.., 0]]
 
@@ -34,4 +31,5 @@ defmodule Pong.Systems.Scoring do
 
     %{position: new_pos, velocity: new_vel}
   end
+
 end
