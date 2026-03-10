@@ -2,7 +2,7 @@ defmodule Pong.Entities.Ball do
   use Lunity.Entity
 
   entity do
-    property :speed, :float, default: 1.0, min: 0.0
+    property :speed, :float, default: 8.0, min: 0.0
 
     component Lunity.Components.Position
     component Lunity.Physics.Components.Velocity
@@ -17,7 +17,7 @@ defmodule Pong.Entities.Ball do
   @impl Lunity.Entity
   def init(config, entity_id) do
     pos = Map.get(config, :position, {0.0, 1.5, 0.0})
-    speed = Map.get(config, :speed, 0.5)
+    speed = Map.get(config, :speed, 1.0)
 
     {sx, sy, sz} = Map.get(config, :scale, {1.0, 0.5, 1.0})
 
