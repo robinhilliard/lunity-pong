@@ -26,8 +26,7 @@ defmodule Pong.Manager do
   def systems do
     [
       Pong.Systems.AutoPaddle,
-      Lunity.Physics.Systems.ApplyVelocity,
-      Lunity.Physics.Systems.AABBCollision,
+      Lunity.Physics.Systems.SweptAABBCollision,
       Pong.Systems.Scoring
     ]
   end
