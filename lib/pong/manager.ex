@@ -8,7 +8,6 @@ defmodule Pong.Manager do
   @impl true
   def components do
     [
-      Lunity.Components.InstanceMembership,
       Lunity.Components.Position,
       Lunity.Physics.Components.Velocity,
       Lunity.Physics.Components.BoxCollider,
@@ -36,7 +35,7 @@ defmodule Pong.Manager do
 
   @impl true
   def setup do
-    {:ok, _pid} = Lunity.Instance.start(Pong.Scenes.Pong, id: "pong_1")
+    {:ok, _pid} = Lunity.Instance.start(Pong.Scenes.Pong, id: "pong_1", manager: __MODULE__)
     :ok
   end
 end
