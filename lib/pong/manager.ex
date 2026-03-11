@@ -32,6 +32,9 @@ defmodule Pong.Manager do
   end
 
   @impl true
+  def tick_rate, do: 60
+
+  @impl true
   def setup do
     {:ok, _pid} = Lunity.Instance.start(Pong.Scenes.Pong, id: "pong_1")
     :ok

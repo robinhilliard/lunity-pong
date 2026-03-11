@@ -2,7 +2,7 @@ defmodule Pong.Entities.Ball do
   use Lunity.Entity
 
   entity do
-    property :speed, :float, default: 8.0, min: 0.0
+    property :speed, :float, default: 10.0, min: 0.0
 
     component Lunity.Components.Position
     component Lunity.Physics.Components.Velocity
@@ -17,12 +17,15 @@ defmodule Pong.Entities.Ball do
   @impl Lunity.Entity
   def init(config, entity_id) do
     pos = Map.get(config, :position, {0.0, 1.5, 0.0})
-    speed = Map.get(config, :speed, 1.0)
+    speed = Map.get(config, :speed, 10.0)
 
     {sx, sy, sz} = Map.get(config, :scale, {1.0, 0.5, 1.0})
 
+    x_sign = if :rand.uniform() > 0.5, do: 1, else: -1
+    z_ratio = (0.3 + :rand.uniform() * 0.7) * if(:rand.uniform() > 0.5, do: 1, else: -1)
+
     Position.put(entity_id, pos)
-    Velocity.put(entity_id, {speed, 0.0, speed * 0.7})
+    Velocity.put(entity_id, {speed * x_sign, 0.0, speed * z_ratio})
     Speed.put(entity_id, speed)
     BoxCollider.put(entity_id, {sx, sy, sz})
     Static.put(entity_id, 0)
