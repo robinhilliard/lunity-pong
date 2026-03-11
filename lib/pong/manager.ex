@@ -9,6 +9,7 @@ defmodule Pong.Manager do
   def components do
     [
       Lunity.Components.Position,
+      Lunity.Components.RandomKey,
       Lunity.Physics.Components.Velocity,
       Lunity.Physics.Components.BoxCollider,
       Lunity.Physics.Components.CollisionLayer,
