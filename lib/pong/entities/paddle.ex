@@ -5,6 +5,7 @@ defmodule Pong.Entities.Paddle do
     property :side, :atom, values: [:left, :right], default: :left
     property :speed, :float, default: 8.0, min: 0.0
 
+    component Lunity.Components.RandomKey
     component Lunity.Components.Position
     component Lunity.Physics.Components.Velocity
     component Lunity.Physics.Components.BoxCollider

@@ -36,7 +36,7 @@ defmodule Pong.Manager do
 
   @impl true
   def setup do
-    {:ok, _pid} = Lunity.Instance.start(Pong.Scenes.Pong, id: "pong_1", manager: __MODULE__)
+    {:ok, _pid} = Lunity.Instance.start(Pong.Scenes.Pong, manager: __MODULE__)
     :ok
   end
 end

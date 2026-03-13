@@ -4,7 +4,6 @@ defmodule Pong.Scenes.Pong do
   scene do
     node(:floor,
       prefab: Pong.Prefabs.Box,
-      entity: Pong.Entities.Wall,
       position: {0, -0.5, 0},
       scale: {30.0, 1.0, 18.0}
     )
