@@ -3,13 +3,13 @@ defmodule Pong.Entities.Wall do
   use Lunity.Entity
 
   entity do
-    component Lunity.Components.Position
-    component Lunity.Physics.Components.Velocity
-    component Lunity.Physics.Components.BoxCollider
-    component Lunity.Physics.Components.Static
-    component Lunity.Physics.Components.CollisionLayer
-    component Lunity.Physics.Components.CollisionMask
-    component Lunity.Physics.Components.Restitution
+    component(Lunity.Components.Position)
+    component(Lunity.Physics.Components.Velocity)
+    component(Lunity.Physics.Components.BoxCollider)
+    component(Lunity.Physics.Components.Static)
+    component(Lunity.Physics.Components.CollisionLayer)
+    component(Lunity.Physics.Components.CollisionMask)
+    component(Lunity.Physics.Components.Restitution)
   end
 
   @impl Lunity.Entity

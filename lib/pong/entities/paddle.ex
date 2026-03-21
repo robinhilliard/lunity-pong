@@ -2,20 +2,20 @@ defmodule Pong.Entities.Paddle do
   use Lunity.Entity
 
   entity do
-    property :side, :atom, values: [:left, :right], default: :left
-    property :speed, :float, default: 8.0, min: 0.0
+    property(:side, :atom, values: [:left, :right], default: :left)
+    property(:speed, :float, default: 8.0, min: 0.0)
 
-    component Lunity.Components.RandomKey
-    component Lunity.Components.Position
-    component Lunity.Physics.Components.Velocity
-    component Lunity.Physics.Components.BoxCollider
-    component Lunity.Physics.Components.Static
-    component Lunity.Physics.Components.CollisionLayer
-    component Lunity.Physics.Components.CollisionMask
-    component Lunity.Physics.Components.Restitution
-    component Pong.Components.Speed
-    component Pong.Components.Side
-    component Pong.Components.PaddleControl
+    component(Lunity.Components.RandomKey)
+    component(Lunity.Components.Position)
+    component(Lunity.Physics.Components.Velocity)
+    component(Lunity.Physics.Components.BoxCollider)
+    component(Lunity.Physics.Components.Static)
+    component(Lunity.Physics.Components.CollisionLayer)
+    component(Lunity.Physics.Components.CollisionMask)
+    component(Lunity.Physics.Components.Restitution)
+    component(Pong.Components.Speed)
+    component(Pong.Components.Side)
+    component(Pong.Components.PaddleControl)
   end
 
   @impl Lunity.Entity

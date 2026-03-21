@@ -22,7 +22,10 @@ defmodule Pong.Systems.AutoPaddle do
           static: Static.t(),
           delta_time: DeltaTime.t()
         }) :: %{position: Position.t()}
-  defn run(%{position: pos, speed: speed, paddle_control: ctrl, static: static_flag, delta_time: dt} = inputs) do
+  defn run(
+         %{position: pos, speed: speed, paddle_control: ctrl, static: static_flag, delta_time: dt} =
+           inputs
+       ) do
     is_auto = Nx.equal(ctrl, 0)
     has_speed = Nx.greater(speed, 0)
     is_static = Nx.equal(static_flag, 1)
@@ -31,11 +34,13 @@ defmodule Pong.Systems.AutoPaddle do
     paddle_z = pos[[.., 2]]
 
     ball_idx = inputs[:ball_idx]
-    ball_z = Nx.select(
-      Nx.greater_equal(ball_idx, 0),
-      pos[ball_idx][2],
-      Nx.tensor(0.0, type: :f32)
-    )
+
+    ball_z =
+      Nx.select(
+        Nx.greater_equal(ball_idx, 0),
+        pos[ball_idx][2],
+        Nx.tensor(0.0, type: :f32)
+      )
 
     target_z = Nx.min(Nx.max(ball_z, -@z_limit), @z_limit)
     diff = Nx.subtract(target_z, paddle_z)

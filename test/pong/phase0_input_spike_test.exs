@@ -21,6 +21,7 @@ defmodule Pong.Phase0InputSpikeTest do
       assert {:ok, _pid} = Instance.start(Pong.Scenes.Pong, id: id, manager: Pong.Manager)
 
       :ok = Session.register(sid)
+
       true =
         Session.update_meta(sid, %SessionMeta{
           entity_id: :paddle_left,
