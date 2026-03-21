@@ -4,6 +4,12 @@ defmodule Pong.Application do
 
   @impl true
   def start(_type, _args) do
+    {:ok, _} = Application.ensure_all_started(:lunity)
+
+    if Application.get_env(:lunity, :mods_enabled, false) do
+      :ok = Lunity.Application.load_mods()
+    end
+
     children = [
       {Pong.Manager, [capacity: 32]}
     ]

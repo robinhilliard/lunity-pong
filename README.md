@@ -1,5 +1,8 @@
 # Pong
 
+![Screenshot](/assets/lunity-pong.png)
+
+
 A Pong game built on the [Lunity Game Engine](https://github.com/robinhilliard/lunity) as a starter project.
 
 ## Prerequisites

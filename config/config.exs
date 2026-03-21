@@ -12,3 +12,5 @@ config :logger, :console, format: "[$level] $message\n"
 config :lunity,
   mode: :editor,
   default_scene: "pong"
+
+import_config "#{config_env()}.exs"
