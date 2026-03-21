@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pong — WebGL (dev)</title>
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #0a0e12; color: #8b9caa; font-family: system-ui, sans-serif; min-height: 100vh; }
+  header { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #1e2a33; }
+  canvas { display: block; width: min(100vw, 960px); height: auto; margin: 0 auto; }
+</style>
+</head>
+<body>
+<header>Minimal WebGL2 clear — game shell placeholder (lunity-pong <code>priv/static/pong_gl.html</code>)</header>
+<canvas id="view" width="960" height="540"></canvas>
+<script type="module">
+const canvas = document.getElementById("view");
+const gl = canvas.getContext("webgl2");
+if (!gl) {
+  canvas.replaceWith(document.createTextNode("WebGL2 not available"));
+} else {
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.clearColor(0.05, 0.12, 0.18, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+}
+</script>
+</body>
+</html>

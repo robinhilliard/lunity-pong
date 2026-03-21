@@ -65,7 +65,9 @@ This starts the Lunity editor window and MCP server. Configure Cursor to connect
 
 **`mix lunity.player`** (headless WebSocket client) must talk to a server whose Mix project sets `config :lunity, :player_join` — this repo’s `config/dev.exs` wires `Pong.PlayerJoin`. Run **`mix lunity.edit` from this directory** (not from the `lunity` engine repo alone), then run `mix lunity.player --url http://127.0.0.1:4111 ...` from here. Otherwise the server expects a client-chosen `instance_id` and you’ll see `bad_join` / `instance_id required`.
 
-**Browser parity:** With the editor running, open [http://127.0.0.1:4111/player](http://127.0.0.1:4111/player) and use the dev mint form (or append `?token=dev_player_ws_token&mint_key=dev_player_mint_key&user_id=u1` to auto-run the same transcript as the CLI).
+**Browser parity:** With the editor running, open [http://127.0.0.1:4111/player](http://127.0.0.1:4111/player) and use the dev mint form (or append `?token=dev_player_ws_token&mint_key=dev_player_mint_key&user_id=u1` to auto-run bootstrap, then **`subscribe_state`** + **`actions`**). **`skip_followup=1`** stops after `assigned`.
+
+**WebGL placeholder:** [http://127.0.0.1:4111/pong](http://127.0.0.1:4111/pong) serves `priv/static/pong_gl.html` (minimal WebGL2 clear) — starting point for a real game shell.
 
 ## Project structure
 
