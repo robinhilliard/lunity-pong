@@ -67,6 +67,8 @@ This starts the Lunity editor window and MCP server. Configure Cursor to connect
 
 **Browser parity:** With the editor running, open [http://127.0.0.1:4111/player](http://127.0.0.1:4111/player) and use the dev mint form (or append `?token=dev_player_ws_token&mint_key=dev_player_mint_key&user_id=u1` to auto-run bootstrap, then **`subscribe_state`** + **`actions`**). **`skip_followup=1`** stops after `assigned`.
 
+**Reconnect (resume)** — Same JWT and player identity as before the disconnect; see the [Lunity README](https://github.com/robinhilliard/lunity#player-websocket-protocol-wsplayer) (`/ws/player` protocol). Within **`:player_reconnect_grace_ms`** (default 10s in Lunity), send **`auth`** with **`resume`: true** (CLI: `mix lunity.player ... --resume`; browser: add **`resume=1`** to the `/player` query). The server may echo **`instance_id`** / **`entity_id`** / **`spawn`** in the **`ack`** so shells skip a redundant **`join`** and send **`subscribe_state`** again. Game apps inherit `config :lunity` from this project’s `config/dev.exs` when you run the endpoint here.
+
 **WebGL placeholder:** [http://127.0.0.1:4111/pong](http://127.0.0.1:4111/pong) serves `priv/static/pong_gl.html` (minimal WebGL2 clear) — starting point for a real game shell.
 
 ## Project structure
