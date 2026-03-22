@@ -7,8 +7,15 @@ defmodule Pong.MixProject do
       version: "0.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
+  end
+
+  defp aliases do
+    # Ensures path dep `lunity` is compiled before the task (avoids stale BEAM).
+    # Single string so Mix runs `mix deps.compile lunity` (not a task named "lunity").
+    [pw: ["deps.compile lunity", "lunity.player_window"]]
   end
 
   # Run "mix help compile.app" to learn about applications.
