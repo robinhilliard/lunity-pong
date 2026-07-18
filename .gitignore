@@ -27,3 +27,4 @@ pong-*.tar
 
 # Cursor workspace file
 *.code-workspace
+.DS_Store
